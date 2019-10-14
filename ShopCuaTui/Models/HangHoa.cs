@@ -44,6 +44,4 @@ namespace ShopCuaTui.Models
         [Display(Name = "Thương hiệu")]
         public ThuongHieu ThuongHieu { get; set; }
     } 
-
-    }
 }
