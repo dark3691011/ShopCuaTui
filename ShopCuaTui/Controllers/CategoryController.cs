@@ -9,6 +9,11 @@ namespace ShopCuaTui.Controllers
 {
     public class CategoryController : Controller
     {
+        private readonly MyDBContext db;
+        public CategoryController(MyDBContext mydb)
+        {
+            db = mydb;
+        }
         public IActionResult Index()
         {
             return View();
