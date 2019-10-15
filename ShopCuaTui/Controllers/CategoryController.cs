@@ -16,7 +16,8 @@ namespace ShopCuaTui.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var hh = db.HangHoas.OrderBy(p => p.TenHh);
+            return View(hh);
         }
     }
 }
