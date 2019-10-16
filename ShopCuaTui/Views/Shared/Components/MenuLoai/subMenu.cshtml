@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ShopCuaTui.Models.Loai>
+
+@{
+    var dsLoaiCha = Model.Where(p => p.MaLoaiCha == null);
+}
+
+@foreach (var lo in dsLoaiCha)
+{
+    var dsLoaiCon = Model.Where(p => p.MaLoaiCha == lo.MaLoai);
+
+    <li>
+        <a asp-controller="Category" asp-action="Index" asp-route-id="@lo.MaLoai">@lo.TenLoai</a>
+        <ul class="sub-menu">
+            @foreach (var loc in dsLoaiCon)
+            {
+                <li><a asp-controller="Category" asp-action="Index" asp-route-id="@loc.MaLoai">@loc.TenLoai</a></li>
+            }
+        </ul>
+    </li>
+}

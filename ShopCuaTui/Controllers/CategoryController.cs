@@ -14,8 +14,14 @@ namespace ShopCuaTui.Controllers
         {
             db = mydb;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
+            if (id.HasValue)
+            {
+                var hhL = db.HangHoas.Where(p => p.MaLoai == id);
+                return View(hhL);
+            }
+            
             var hh = db.HangHoas.OrderBy(p => p.TenHh);
             return View(hh);
         }
