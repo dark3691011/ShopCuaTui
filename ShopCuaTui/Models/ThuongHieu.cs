@@ -20,5 +20,6 @@ namespace ShopCuaTui.Models
         public string DienThoai { get; set; }
         [MaxLength(150)]
         public string Logo { get; set; }
+        public string MoTa { get; set; }
     }
 }

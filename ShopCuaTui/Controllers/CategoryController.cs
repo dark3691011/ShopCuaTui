@@ -18,11 +18,23 @@ namespace ShopCuaTui.Controllers
         {
             if (id.HasValue)
             {
-                var hhL = db.HangHoas.Where(p => p.MaLoai == id);
-                return View(hhL);
+                var DsHhId = db.HangHoas.Where(p => p.MaLoai == id);
+                return View(DsHhId);
             }
             
-            var hh = db.HangHoas.OrderBy(p => p.TenHh);
+            var DsHH = db.HangHoas.OrderBy(p => p.TenHh);
+            return View(DsHH);
+        }
+
+        public IActionResult ChiTiet(int id)
+        {
+            var hh = db.HangHoas.SingleOrDefault(p => p.MaHh == id);
+            if(hh == null)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.tenThuongHieu = db.ThuongHieus.SingleOrDefault(p => p.MaTh == hh.MaTh).TenThuongHieu;
+
             return View(hh);
         }
     }

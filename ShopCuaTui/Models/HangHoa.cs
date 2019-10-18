@@ -16,9 +16,6 @@ namespace ShopCuaTui.Models
         [Required(ErrorMessage = "*")]
         [Display(Name = "Tên hàng hóa")]
         public string TenHh { get; set; }
-        [MaxLength(150)]
-        [Display(Name = "Hình")]
-        public string Hinh { get; set; }
         [Display(Name = "Mô tả")]
         [DataType(DataType.MultilineText)]
         public string MoTa { get; set; }
@@ -43,5 +40,11 @@ namespace ShopCuaTui.Models
         [ForeignKey("MaTh")]
         [Display(Name = "Thương hiệu")]
         public ThuongHieu ThuongHieu { get; set; }
+
+        [Display(Name ="Mã hình")]
+        public int ImgID { get; set; }
+        [ForeignKey("ImgID")]
+        [Display(Name ="Hình")]
+        public ImgProduct ImgProduct { get; set; }
     } 
 }

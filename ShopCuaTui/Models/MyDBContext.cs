@@ -12,6 +12,7 @@ namespace ShopCuaTui.Models
         public DbSet<ThuongHieu> ThuongHieus { get; set; }
         public DbSet<HangHoa> HangHoas { get; set; }
         public DbSet<KhachHang> KhachHangs { get; set; }
+        public DbSet<ImgProduct> ImgProducts { get; set; }
 
         public MyDBContext(DbContextOptions options) : base(options)
         {
