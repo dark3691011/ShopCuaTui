@@ -23,10 +23,27 @@ namespace ShopCuaTui.Models
         public double DonGia { get; set; }
         [Display(Name = "Số lượng")]
         public int SoLuong { get; set; }
-
         [Display(Name = "Giảm giá (%)")]
         [Range(0, 100)]
         public int GiamGia { get; set; }
+        public string ProductImg { get; set; }
+        [Display(Name = "Hình chi tiết 1")]
+        [MaxLength(150)]
+        public string SingleProductImg1 { get; set; }
+        [Display(Name = "Hình chi tiết 2")]
+        [MaxLength(150)]
+        public string SingleProductImg2 { get; set; }
+        [Display(Name = "Hình chi tiết 3")]
+        [MaxLength(150)]
+        public string SingleProductImg3 { get; set; }
+        [Display(Name = "Hình chi tiết 4")]
+        [MaxLength(150)]
+        public string SingleProductImg4 { get; set; }
+
+
+
+
+
 
         [Display(Name = "Loại")]
         public int MaLoai { get; set; }
@@ -40,11 +57,5 @@ namespace ShopCuaTui.Models
         [ForeignKey("MaTh")]
         [Display(Name = "Thương hiệu")]
         public ThuongHieu ThuongHieu { get; set; }
-
-        [Display(Name ="Mã hình")]
-        public int ImgID { get; set; }
-        [ForeignKey("ImgID")]
-        [Display(Name ="Hình")]
-        public ImgProduct ImgProduct { get; set; }
     } 
 }

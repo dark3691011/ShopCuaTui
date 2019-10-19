@@ -21,7 +21,6 @@ namespace ShopCuaTui.Controllers
                 var DsHhId = db.HangHoas.Where(p => p.MaLoai == id);
                 return View(DsHhId);
             }
-            
             var DsHH = db.HangHoas.OrderBy(p => p.TenHh);
             return View(DsHH);
         }
