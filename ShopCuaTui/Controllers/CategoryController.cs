@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ShopCuaTui.Models;
 
 namespace ShopCuaTui.Controllers
@@ -27,12 +28,11 @@ namespace ShopCuaTui.Controllers
 
         public IActionResult ChiTiet(int id)
         {
-            var hh = db.HangHoas.SingleOrDefault(p => p.MaHh == id);
+            var hh = db.HangHoas.Include(p => p.ThuongHieu).SingleOrDefault(p => p.MaHh == id);
             if(hh == null)
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.tenThuongHieu = db.ThuongHieus.SingleOrDefault(p => p.MaTh == hh.MaTh).TenThuongHieu;
 
             return View(hh);
         }
